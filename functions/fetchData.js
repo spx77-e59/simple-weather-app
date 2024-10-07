@@ -1,4 +1,4 @@
-export default async function fetchData(location, unitGroup, period) {
+export default async function fetchData(location, period, unitGroup) {
   const API_KEY = "9ZWJP8DXHVBVKJGL3WGLBZBLX";
   try {
     const response = await fetch(

@@ -1,4 +1,4 @@
-export default async function processDataForSevenDays(data) {
+export default function processDataForSevenDays(data) {
   const sevenDaysData = [];
   for (let i = 0; i < 6; i++) {
     sevenDaysData.push({

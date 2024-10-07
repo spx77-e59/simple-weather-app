@@ -1,4 +1,4 @@
-export default async function processDataForYesterday() {
+export default function processDataForOneDay(data) {
   const oneDayData = {
     datetime: data.days[0].datetime,
     resolvedAddress: data.resolvedAddress,

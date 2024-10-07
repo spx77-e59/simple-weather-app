@@ -1,4 +1,4 @@
-export default async function processDataForToday(data) {
+export default function processDataForToday(data) {
   const hourData = [];
   const daysData = data.days[0];
   for (let i = 0; i < 24; i++) {

@@ -7,7 +7,27 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    
-    <script src="./index.js"></script>
+    <form id="fetchData">
+      <input
+        type="text"
+        name="location"
+        id="location"
+        placeholder="Enter location"
+      />
+      <select name="period" id="period">
+        <option value="today" selected>Today</option>
+        <option value="yesterday">Yesterday</option>
+        <option value="tomorrow">Tomorrow</option>
+        <option value="last7days">Last 7 Days</option>
+        <option value="next7days">Next 7 Days</option>
+      </select>
+      <select name="unitGroup" id="unitGroup">
+        <option value="metric" selected>Metric (degree C, km)</option>
+        <option value="us">US(F, miles)</option>
+        <option value="uk">UK(C,miles)</option>
+      </select>
+      <button type="submit">Search</button>
+    </form>
+    <script src="./index.js" type="module"></script>
   </body>
 </html>
