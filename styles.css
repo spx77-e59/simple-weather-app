@@ -8,5 +8,65 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 20px;
   background-color: aqua;
+}
+
+form {
+  padding: 30px;
+}
+
+form input,
+select,
+button {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+#todayContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#currentConditions {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: aquamarine;
+  align-items: center;
+}
+
+#today {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: pink;
+  align-items: center;
+}
+
+#hours {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: gold;
+}
+
+#yesterdayData, #tomorrowData {
+  display: grid;
+grid-template-columns: 200px 200px;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: pink;
+  align-items: center;
 }
