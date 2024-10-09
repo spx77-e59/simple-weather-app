@@ -6,12 +6,13 @@ export default function processDataForSevenDays(data) {
       resolvedAddress: data.resolvedAddress,
       temp: data.days[i].temp,
       conditions: data.days[i].conditions,
+      description: data.days[i].description,
       icon: data.days[i].icon,
       sunrise: data.days[i].sunrise,
       sunset: data.days[i].sunset,
     });
   }
   // TODO: to remove
-  console.table("seven days data:",sevenDaysData);
+  console.table("seven days data:", sevenDaysData);
   return sevenDaysData;
 }

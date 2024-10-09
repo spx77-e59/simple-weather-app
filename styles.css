@@ -81,3 +81,7 @@ button {
   flex-direction: column;
   gap: 20px;
 }
+
+.weather-img {
+  width: 100px;
+}

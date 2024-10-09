@@ -1,12 +1,13 @@
-temp: Temperature
-feelslike: Perceived temperature
-humidity: Humidity
-precip: Precipitation
-precipprob: Probability of precipitation
-snow: Snowfall
-snowdepth: Snow depth
-preciptype: Precipitation type
-windgust: Wind gust
-windspeed: Wind speed
-winddir: Wind direction
-conditions: Weather conditions
+rain
+partially cloudy
+snow
+overcast
+clear
+
+possible combinations:
+rain , partially cloudy
+rain, overcast
+rain, snow
+rain, snow, overcast
+rain, snow
+

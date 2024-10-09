@@ -18,6 +18,7 @@ export default function processDataForToday(data) {
       icon: data.days[0].icon,
       sunrise: data.days[0].sunrise,
       sunset: data.days[0].sunset,
+      description: data.days[0].description,
     },
     currentConditions: {
       temp: data.currentConditions.temp,

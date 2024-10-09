@@ -1,4 +1,5 @@
 import decideUnits from "../utils/decideUnits.js";
+import selectImgSrc from "../utils/selectImgSrc.js";
 
 export default function displayDataForToday(
   processedData,
@@ -19,10 +20,9 @@ export default function displayDataForToday(
   todayDiv.innerHTML = "";
   hoursDiv.innerHTML = "";
 
-  const currentTempTitle = document.createElement("h3");
-  const currentTempText = document.createElement("p");
-  currentTempTitle.textContent = "Temperature";
-  currentTempText.textContent = processedData.currentConditions.temp + temp;
+  const img = document.createElement("img");
+  img.className = "weather-img";
+  img.src = selectImgSrc(processedData.currentConditions.conditions);
 
   const currentConditionsTitle = document.createElement("h3");
   const currentConditionsText = document.createElement("p");
@@ -30,28 +30,46 @@ export default function displayDataForToday(
   currentConditionsText.textContent =
     processedData.currentConditions.conditions;
 
+  const currentTempTitle = document.createElement("h3");
+  const currentTempText = document.createElement("p");
+  currentTempTitle.textContent = "Temperature";
+  currentTempText.textContent = processedData.currentConditions.temp + temp;
+
   currentDiv.append(
-    currentTempTitle,
-    currentTempText,
+    img,
     currentConditionsTitle,
-    currentConditionsText
+    currentConditionsText,
+    currentTempTitle,
+    currentTempText
   );
 
-  const todayTempTitle = document.createElement("h3");
-  const todayTempText = document.createElement("p");
-  todayTempTitle.textContent = "Temperature";
-  todayTempText.textContent = processedData.today.temp + temp;
+  const todayImg = document.createElement("img");
+  todayImg.className = "weather-img";
+  todayImg.src = selectImgSrc(processedData.today.conditions);
 
   const todayConditionsTitle = document.createElement("h3");
   const todayConditionsText = document.createElement("p");
   todayConditionsTitle.textContent = "Conditions";
   todayConditionsText.textContent = processedData.currentConditions.conditions;
 
+  const todayDescriptionTitle = document.createElement("h3");
+  const todayDescriptionText = document.createElement("p");
+  todayDescriptionTitle.textContent = "Description";
+  todayDescriptionText.textContent = processedData.today.description;
+
+  const todayTempTitle = document.createElement("h3");
+  const todayTempText = document.createElement("p");
+  todayTempTitle.textContent = "Temperature";
+  todayTempText.textContent = processedData.today.temp + temp;
+
   todayDiv.append(
-    todayTempTitle,
-    todayTempText,
+    todayImg,
     todayConditionsTitle,
-    todayConditionsText
+    todayConditionsText,
+    todayDescriptionTitle,
+    todayDescriptionText,
+    todayTempTitle,
+    todayTempText
   );
 
   processedData.hours.forEach((hour) => {

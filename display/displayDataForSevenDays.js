@@ -1,4 +1,5 @@
 import decideUnits from "../utils/decideUnits.js";
+import selectImgSrc from "../utils/selectImgSrc.js";
 
 export default function displayDataForOneDay(
   processedData,
@@ -16,6 +17,20 @@ export default function displayDataForOneDay(
     dateTime.textContent = processedData[i].datetime;
     resolvedAddress.textContent = processedData.resolvedAddress;
 
+    const img = document.createElement("img");
+    img.className = "weather-img";
+    img.src = selectImgSrc(processedData[i].conditions);
+
+    const conditionsTitle = document.createElement("h3");
+    const conditionsText = document.createElement("p");
+    conditionsTitle.textContent = "Conditions";
+    conditionsText.textContent = processedData[i].conditions;
+
+    const descriptionTitle = document.createElement("h3");
+    const descriptionText = document.createElement("p");
+    descriptionTitle.textContent = "Description";
+    descriptionText.textContent = processedData[i].description;
+
     const sunriseTitle = document.createElement("h2");
     const sunriseText = document.createElement("p");
     sunriseTitle.textContent = "Sunrise";
@@ -31,23 +46,21 @@ export default function displayDataForOneDay(
     tempTitle.textContent = "Temperature";
     tempText.textContent = processedData[i].temp + temp;
 
-    const conditionsTitle = document.createElement("h3");
-    const conditionsText = document.createElement("p");
-    conditionsTitle.textContent = "Conditions";
-    conditionsText.textContent = processedData[i].conditions;
-
     const oneDayDiv = document.createElement("div");
     oneDayDiv.append(
       dateTime,
       resolvedAddress,
+      img,
+      conditionsTitle,
+      conditionsText,
+      descriptionTitle,
+      descriptionText,
+      tempTitle,
+      tempText,
       sunriseTitle,
       sunriseText,
       sunsetTitle,
-      sunsetText,
-      tempTitle,
-      tempText,
-      conditionsTitle,
-      conditionsText
+      sunsetText
     );
 
     sevenDayDiv.append(oneDayDiv);
