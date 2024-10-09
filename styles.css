@@ -11,6 +11,7 @@ body {
   justify-content: center;
   gap: 20px;
   background-color: aqua;
+  margin-bottom: 200px;
 }
 
 form {
@@ -60,13 +61,23 @@ button {
   background-color: gold;
 }
 
-#yesterdayData, #tomorrowData {
+#yesterdayData,
+#tomorrowData,
+#lastSevenDaysData div,
+#nextSevenDaysData div {
   display: grid;
-grid-template-columns: 200px 200px;
+  grid-template-columns: 200px 200px;
   gap: 30px;
   align-items: center;
   justify-content: center;
   padding: 20px;
   background-color: pink;
   align-items: center;
+}
+
+#lastSevenDaysData,
+#nextSevenDaysData {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }

@@ -1,6 +1,6 @@
 export default function processDataForSevenDays(data) {
   const sevenDaysData = [];
-  for (let i = 0; i < 6; i++) {
+  for (let i = 1; i < 8; i++) {
     sevenDaysData.push({
       datetime: data.days[i].datetime,
       resolvedAddress: data.resolvedAddress,
@@ -11,5 +11,7 @@ export default function processDataForSevenDays(data) {
       sunset: data.days[i].sunset,
     });
   }
+  // TODO: to remove
+  console.table("seven days data:",sevenDaysData);
   return sevenDaysData;
 }

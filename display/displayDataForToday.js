@@ -1,4 +1,4 @@
-import decideUnits from "./decideUnits.js";
+import decideUnits from "../utils/decideUnits.js";
 
 export default function displayDataForToday(
   processedData,
@@ -9,9 +9,15 @@ export default function displayDataForToday(
 
   const childDivs = containerDiv.querySelectorAll("div");
 
-  const currentDiv = childDivs[0];
-  const todayDiv = childDivs[1];
-  const hoursDiv = childDivs[2];
+  const todayInfoDiv = childDivs[0];
+  const currentDiv = childDivs[1];
+  const todayDiv = childDivs[2];
+  const hoursDiv = childDivs[3];
+
+  todayInfoDiv.innerHTML = "";
+  currentDiv.innerHTML = "";
+  todayDiv.innerHTML = "";
+  hoursDiv.innerHTML = "";
 
   const currentTempTitle = document.createElement("h3");
   const currentTempText = document.createElement("p");
@@ -64,7 +70,7 @@ export default function displayDataForToday(
 
     const div = document.createElement("div");
     div.append(dateTime, tempTitle, tempText, conditionsTitle, conditionsText);
-    
+
     hoursDiv.append(div);
   });
 
@@ -83,7 +89,7 @@ export default function displayDataForToday(
   sunsetTitle.textContent = "Sunset";
   sunsetText.textContent = processedData.today.sunset;
 
-  containerDiv.prepend(
+  todayInfoDiv.prepend(
     dateTime,
     resolvedAddress,
     sunriseTitle,

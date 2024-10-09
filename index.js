@@ -4,29 +4,47 @@ import processDataForOneDay from "./functions/processDataForOneDay.js";
 import fetchData from "./functions/fetchData.js";
 import displayDataForToday from "./display/displayDataForToday.js";
 import displayDataForOneDay from "./display/displayDataForOneDay.js";
+import displayDataForSevenDays from "./display/displayDataForSevenDays.js";
 
+const contentDiv = document.querySelector("#content");
 const todaycontainer = document.querySelector("#todayContainer");
 const yesterdayContainer = document.querySelector("#yesterdayContainer");
 const tomorrowContainer = document.querySelector("#tomorrowContainer");
-const sevenDaysContainer = document.querySelector("#sevenDaysContainer");
+const lastSevenDaysContainer = document.querySelector(
+  "#lastSevenDaysContainer"
+);
+const nextSevenDaysContainer = document.querySelector(
+  "#nextSevenDaysContainer"
+);
 
 const form = document.querySelector("form");
 form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
   todaycontainer.style.display = "none";
   yesterdayContainer.style.display = "none";
   tomorrowContainer.style.display = "none";
-  sevenDaysContainer.style.display = "none";
-  e.preventDefault();
+  lastSevenDaysContainer.style.display = "none";
+  nextSevenDaysContainer.style.display = "none";
+
   const location = form.location.value;
   const period = form.period.value;
   const unitGroup = form.unitGroup.value;
 
+  //TODO: to remove
+  console.log(location, period, unitGroup);
+
+  const loadingMessage = document.createElement("h1");
+  loadingMessage.textContent = "Fetching Data Please Wait...";
+  contentDiv.append(loadingMessage);
+
   const data = await fetchData(location, period, unitGroup);
 
-  getProcessedDataAndDisplay(period, data);
+  loadingMessage.remove();
+  getProcessedDataAndDisplay(period, data, unitGroup);
 });
 
-function getProcessedDataAndDisplay(period, data) {
+function getProcessedDataAndDisplay(period, data, unitGroup) {
   let processedData;
   switch (period) {
     case "today":
@@ -42,7 +60,12 @@ function getProcessedDataAndDisplay(period, data) {
       displayDataForOneDay(processedData, tomorrowContainer, unitGroup);
       break;
     case "last7days":
+      processedData = processDataForSevenDays(data);
+      displayDataForSevenDays(processedData, lastSevenDaysContainer, unitGroup);
+      break;
     case "next7days":
-      return processDataForSevenDays(data);
+      processedData = processDataForSevenDays(data);
+      displayDataForSevenDays(processedData, nextSevenDaysContainer, unitGroup);
+      break;
   }
 }

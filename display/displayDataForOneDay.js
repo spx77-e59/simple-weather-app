@@ -1,4 +1,4 @@
-import decideUnits from "./decideUnits.js";
+import decideUnits from "../utils/decideUnits.js";
 
 export default function displayDataForOneDay(
   processedData,
@@ -7,6 +7,7 @@ export default function displayDataForOneDay(
 ) {
   const temp = decideUnits(unitGroup).temp;
   const oneDayDiv = containerDiv.querySelector("div");
+  oneDayDiv.innerHTML ="";
 
   const dateTime = document.createElement("h2");
   const resolvedAddress = document.createElement("h2");
