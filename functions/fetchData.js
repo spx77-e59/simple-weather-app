@@ -6,6 +6,9 @@ export default async function fetchData(location, period, unitGroup) {
 
   try {
     const response = await fetch(url, { mode: "cors" });
+    if(response.status === 429) {
+        return "too many requests";
+    }
     if (!response.ok) {
       throw new Error(`Error fetching data: ${response.status}`);
     }
@@ -13,6 +16,6 @@ export default async function fetchData(location, period, unitGroup) {
     return data;
   } catch (error) {
     console.error("Error:", error);
-    return "";
+    return "bad location";
   }
 }

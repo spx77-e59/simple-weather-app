@@ -38,9 +38,18 @@ form.addEventListener("submit", async (e) => {
 
   const data = await fetchData(location, period, unitGroup);
 
-  if (data === "") {
+  if (data === "too many requests") {
     loadingMessage.textContent =
-      "No data found for that location. Try another location.";
+      "Can't fetch data right now. Please try again later...";
+    setTimeout(() => {
+      loadingMessage.remove();
+    }, 3000);
+    return;
+  }
+
+  if (data === "bad location") {
+    loadingMessage.textContent =
+      "No data found for that location. Please try another location.";
     setTimeout(() => {
       loadingMessage.remove();
     }, 3000);
