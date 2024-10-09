@@ -85,3 +85,7 @@ button {
 .weather-img {
   width: 100px;
 }
+
+.loading-message {
+  color: green;
+}

@@ -28,8 +28,5 @@ export default function processDataForToday(data) {
     hours: hourData,
   };
 
-  // to remove
-  console.log(todayData);
-
   return todayData;
 }

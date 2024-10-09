@@ -10,7 +10,5 @@ export default function processDataForOneDay(data) {
     sunset: data.days[0].sunset,
   };
 
-  console.log(data);
-
   return oneDayData;
 }

@@ -10,9 +10,9 @@ export default async function fetchData(location, period, unitGroup) {
       throw new Error(`Error fetching data: ${response.status}`);
     }
     const data = await response.json();
-
     return data;
   } catch (error) {
     console.error("Error:", error);
+    return "";
   }
 }

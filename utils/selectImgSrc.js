@@ -1,6 +1,5 @@
 export default function selectImgSrc(condition) {
-  console.log(condition);
-  
+
   if (condition === "Rain") {
     return "../img/rainy.png";
   }

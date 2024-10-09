@@ -31,14 +31,21 @@ form.addEventListener("submit", async (e) => {
   const period = form.period.value;
   const unitGroup = form.unitGroup.value;
 
-  //TODO: to remove
-  console.log(location, period, unitGroup);
-
   const loadingMessage = document.createElement("h1");
+  loadingMessage.className = "loading-message";
   loadingMessage.textContent = "Fetching Data Please Wait...";
   contentDiv.append(loadingMessage);
 
   const data = await fetchData(location, period, unitGroup);
+
+  if (data === "") {
+    loadingMessage.textContent =
+      "No data found for that location. Try another location.";
+    setTimeout(() => {
+      loadingMessage.remove();
+    }, 3000);
+    return;
+  }
 
   loadingMessage.remove();
   getProcessedDataAndDisplay(period, data, unitGroup);

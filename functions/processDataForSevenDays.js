@@ -12,7 +12,6 @@ export default function processDataForSevenDays(data) {
       sunset: data.days[i].sunset,
     });
   }
-  // TODO: to remove
-  console.table("seven days data:", sevenDaysData);
+
   return sevenDaysData;
 }
